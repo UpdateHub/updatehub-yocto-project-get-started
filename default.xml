@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote fetch="https://git.yoctoproject.org/git/" name="yocto" sync-j="4"/>
-  <remote fetch="https://code.ossystems.com.br" name="ossystems" sync-j="4" review="code.ossystems.com.br"/>
   <remote fetch="http://git.openembedded.org" name="oe" sync-j="4"/>
   <remote fetch="https://github.com" name="github" sync-j="4"/>
 
-  <default revision="invalidRevision"/>
+  <!-- ### Yocto Project release used as default for all included layers and components ### -->
+  <default revision="master"/>
 
-  <!-- Open Embedded Layers -->
-  <project remote="oe" revision="1.46" name="bitbake" path="sources/bitbake"/>
-  <project remote="oe" revision="dunfell" name="openembedded-core" path="sources/openembedded-core"/>
-  <project remote="oe" revision="dunfell" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <!-- ### O.S. Systems Embedded Linux Core layers ### -->
+  <project remote="oe" revision="master" name="bitbake" path="sources/bitbake"/>
+  <project remote="oe" name="openembedded-core" path="sources/openembedded-core"/>
 
-  <!-- OS Systems Layers -->
-  <project remote="ossystems" revision="dunfell" name="meta-ossystems-base" path="sources/meta-ossystems-base"/>
-  <project remote="ossystems" revision="dunfell" name="ossystems-yocto-base-scripts" path="sources/base">
+  <project remote="github" name="OSSystemsEmbeddedLinux/meta-ossystems-base" path="sources/meta-ossystems-base"/>
+  <project remote="github" name="OSSystemsEmbeddedLinux/ossystems-yocto-base-scripts" path="sources/base">
     <copyfile dest="setup-environment" src="setup-environment"/>
   </project>
 
+  <!-- Meta-OpenEmbedded -->
+  <project remote="oe" name="meta-openembedded" path="sources/meta-openembedded"/>
+
   <!-- UpdateHub Layers and platform -->
-  <project remote="github" revision="dunfell" name="UpdateHub/meta-updatehub" path="sources/meta-updatehub"/>
-  <project remote="github" revision="master" name="fbertux/updatehub-yocto-project-get-started" path="sources/platform"/>
+  <project remote="github" name="UpdateHub/updatehub-yocto-project-get-started" path="sources/platform"/>
+  <project remote="github" name="UpdateHub/meta-updatehub" path="sources/meta-updatehub"/>
 
   <!-- UpdateHub support for Raspberry Pi BSP -->
-  <project remote="yocto"  revision="dunfell" name="meta-raspberrypi" path="sources/meta-raspberrypi"/>
-  <project remote="github" revision="dunfell" name="UpdateHub/meta-updatehub-raspberrypi" path="sources/meta-updatehub-raspberrypi"/>
+  <project remote="github" name="agherzan/meta-raspberrypi" path="sources/meta-raspberrypi"/>
+  <project remote="github" name="UpdateHub/meta-updatehub-raspberrypi" path="sources/meta-updatehub-raspberrypi"/>
 </manifest>
