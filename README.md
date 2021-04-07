@@ -16,7 +16,7 @@ Download the platform source:
 $ PATH=${PATH}:~/bin
 $ mkdir updatehub-get-started
 $ cd updatehub-get-started
-$ repo init -u https://github.com/fbertux/updatehub-yocto-project-get-started.git
+$ repo init -u https://github.com/fbertux/updatehub-yocto-project-get-started.git -b dunfell
 $ repo sync
 ```
 
